@@ -1,0 +1,274 @@
+## Scalaとは
+* マルチパラダイム言語(オブジェクト指向言語＋関数型言語)
+* 「Scala」は英語の「scalable language」に由来
+* JVM上で動作し既存のJavaのプログラムと容易に連携できる
+* Typesafe社が管理
+* スイス連邦工科大学 (EPFL) の Martin Odersky 教授によって設計
+(マーティン・オーダスキー、小田好先生)
+
+---
+## Scalaのメリット
+* Javaに比べコードを簡潔に記述できる
+* FPの習慣を用いて不具合の少ないコードが書きやすい
+* JVM上で動作するため既存の運用ノウハウが活かしやすい
+* Javaの資産(ライブラリ等)を活用できる
+* 「Scala使いです」っていうのがカッコイイ
+
+---
+## Scalaのデメリット
+* 言語仕様が複雑(習得に時間がかかる)
+* シンタックスシュガーが多く多彩な書き方ができる
+
+上記はコードレビューを促進させる要因にもなる
+
+* 後方バイナリ互換がない(ソースコード互換はある程度あり)
+* コンパイルが遅い(笑)
+
+---
+## Scalaの構文紹介
+
+---
+### class
+Javaとだいたい同じ
+```java
+public class JavaClass {
+    // code here
+}
+```
+```scala
+class ScalaClass {
+  // code here
+}
+```
+
+---
+### object
+そのJVMプロセスで唯一のインスタンス(シングルトン)を生成
+(Javaのstaticみたいなもの)
+```java
+public class JavaClass {
+    public static final String value = "hoge";
+}
+
+// access
+System.out.println(JavaClass.value);
+```
+```scala
+object ScalaClass {
+  val value = "foo"
+}
+
+// access
+println(ScalaClass.value)
+```
+
+---
+### case class
+このキーワードで定義されたクラスは下記のメソッドがオーバーライドされた状態で生成される
+* setter/getter
+* toString
+* equals
+* hashCode
+
+JavaBeanを簡単に作ることができる
+```java
+public class JavaBean {
+    private String value;
+    public JavaBean(String value) {
+        this.value = value;
+    }
+    public String getValue() {
+        return value;
+    }
+    // override toString, equals, hashCode...
+}
+```
+```scala
+case class ScalaBean(val value)
+```
+
+---
+### trait
+メンバ変数と実装を持てるインタフェースのようなもの
+```java
+public interface JavaInterface {
+    default public String formatValue() {
+        return String.format("[%s]", value());
+    }
+    public String value();
+}
+```
+```scala
+trait ScalaTrait {
+  val formatString = "[%s]"
+  def formatValue: String = formatString.format(value)
+  abstract def value
+}
+```
+
+---
+### var, val
+```java
+String value1 = "one";
+value1 = "oneone";
+final String value2 = "two";
+value2 = "twotwo"; // コンパイルエラー
+```
+```scala
+var value1 = "one"
+value1 = "oneone"
+val value2 = "two"
+value2 = "twotwo" // コンパイルエラー
+```
+
+---
+### method
+```java
+public String addPrefix(String value) {
+    return "pre" + value;
+}
+```
+```scala
+def addPrefix(value: String): String = {
+  val prefix = "pre"
+  prefix + value
+}
+def addPrefix(value: String) = "pre" + value
+```
+
+---
+### if式
+if文ではなくif式で値を返却する
+Javaの三項演算子のほうが挙動が近い
+```java
+String value = null;
+if (flag) {
+    value = "flag on";
+} else {
+    value = "flag off";
+}
+```
+```scala
+val value = if (flag) {
+  "flag on"
+} else {
+  "flag off"
+}
+
+val value = if (flag) "flag on" else "flag off"
+```
+
+---
+### while
+Javaのwhileと同じだが基本的に使用しない
+詳しくはコップ本で
+
+---
+### for式
+Javaと同じように利用できるが別用途で用いることのほうが多い
+yieldキーワードで値をリストで返却することもできる
+```java
+for (int i = 0; i < 10; i++) {
+    System.out.println(i);
+}
+```
+```scala
+for (i <- 0 to 9) {
+  println(i)
+}
+```
+
+---
+### match式
+switchみたいなものだが柔軟に色々なケースを書ける
+```java
+String s = null;
+switch (x) {
+    case 0:
+        s = "zero";
+        break;
+    case 1:
+        s = "one";
+        break;
+    default:
+        s = "other";
+        break;
+}
+```
+```scala
+val s = x match {
+  case 0 => "zero"
+  case 1 => "one"
+  case _ => "other"
+}
+
+val i = scala.util.Random.nextInt(15) + 1
+(i % 3, i % 5) match {
+  case (0, 0) => println("FizzBuzz")
+  case (0, _) => println("Fizz")
+  case (_, 0) => println("Buzz")
+  case (_, _) => println(i.toString)
+}
+```
+
+---
+### Function
+Scalaは関数をオブジェクトとして扱える
+その実態はFunctionNトレイトの無名クラス
+関数リテラルで意識せずに書ける
+```scala
+val intToString: Int => String = (i: Int) => "string: " + i.toString
+println(intToString(1)) // string: 1
+println(intToString(25)) // string: 25
+```
+
+---
+## Scalaのエコシステム
+
+---
+### ビルドツール
+* sbt
+* (Gradle)
+
+---
+### IDE
+* Eclipse (Scala IDE for Eclipseプラグイン)
+* Intellij IDEA (Scalaプラグイン)
+* Vim (Scalaプラグインいくつか)
+* Emacs (プラグインあるらしいけどシラン)
+* 好きなテキストエディタ＋コマンドライン
+
+---
+### web framework
+* Play! Framework
+* Scalatra
+* spray
+* skinny
+
+---
+### DBアクセスライブラリ
+* slick
+* scalikejdbc
+
+---
+### testing
+* scalatest
+* scalacheck
+* scalaprops
+
+---
+### 分散処理
+* akka
+* Spark
+
+---
+### その他
+* scalaz (関数型ライブラリ)
+* scala.js (AltJS)
+* GitBucket (GitHubクローン)
+* Gatling (負荷ツール)
+
+---
+## 勉強会の進め方
+* コップ本の目次・区切り方
+* 担当決め
