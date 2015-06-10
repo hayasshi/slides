@@ -112,8 +112,6 @@ public class JavaBean {
     // override toString, equals, hashCode...
 }
 ```
-
----
 ```scala
 case class ScalaBean(val value)
 ```
