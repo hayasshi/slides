@@ -6,6 +6,7 @@ class: center, middle, inverse
 # Scalaチュートリアル的な
 
 ---
+layout: false
 ## 目次
 * Scalaとは、メリット、デメリット
 * Scalaの構文紹介
@@ -40,9 +41,11 @@ class: center, middle, inverse
 * コンパイルが遅い(笑)
 
 ---
+layout: true
 # Scalaの構文紹介
 
 ---
+layout: false
 ### class
 Javaとだいたい同じ
 ```java
@@ -237,9 +240,11 @@ println(intToString(25)) // string: 25
 ```
 
 ---
+layout: true
 # Scalaのエコシステム
 
 ---
+layout: false
 ### ビルドツール
 * sbt
 * (Gradle)
