@@ -1,12 +1,9 @@
-name: inverse
-layout: true
-class: center, middle, inverse
+## Scalaチュートリアル的な
+* Scalaとは、メリット、デメリット
+* Scalaの構文紹介
+* Scalaのエコシステム
 
 ---
-# Scalaチュートリアル的な
-
----
-layout: false
 ## Scalaとは
 * マルチパラダイム言語(オブジェクト指向言語＋関数型言語)
 * 「Scala」は英語の「scalable language」に由来
@@ -34,11 +31,9 @@ layout: false
 * コンパイルが遅い(笑)
 
 ---
-layout: true
 ## Scalaの構文紹介
 
 ---
-layout: false
 ### class
 Javaとだいたい同じ
 ```java
