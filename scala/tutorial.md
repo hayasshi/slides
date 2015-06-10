@@ -112,6 +112,8 @@ public class JavaBean {
     // override toString, equals, hashCode...
 }
 ```
+
+---
 ```scala
 case class ScalaBean(val value)
 ```
@@ -223,6 +225,8 @@ switch (x) {
         break;
 }
 ```
+
+---
 ```scala
 val s = x match {
   case 0 => "zero"
@@ -389,17 +393,21 @@ println(intToString(25)) // string: 25
   第17章(コレクション)
 
 ---
-## in
-* 小畑
-* 潮田
+## キックオフ参加者(敬称略順不同)
+小畑
+潮田
 山本
-* 道音
-* 細川
+道音
+細川
 西中
-* 高橋
+高橋
 薮田
 マイク
 
+---
+# 担当
+
+---
 ## 6/17
 * 1: 細川
 * 2,3: 潮田
@@ -416,4 +424,3 @@ println(intToString(25)) // string: 25
 ## 7/8
 * 14,15: 高橋
 * 16,17: 林
-
