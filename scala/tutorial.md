@@ -1,3 +1,6 @@
+# Scalaチュートリアル的な
+
+---
 ## Scalaとは
 * マルチパラダイム言語(オブジェクト指向言語＋関数型言語)
 * 「Scala」は英語の「scalable language」に由来
@@ -9,7 +12,7 @@
 ---
 ## Scalaのメリット
 * Javaに比べコードを簡潔に記述できる
-* FPの習慣を用いて不具合の少ないコードが書きやすい
+* FPの習慣を用いて不具合の少ないコードを書きやすい
 * JVM上で動作するため既存の運用ノウハウが活かしやすい
 * Javaの資産(ライブラリ等)を活用できる
 * 「Scala使いです」っていうのがカッコイイ
@@ -17,7 +20,7 @@
 ---
 ## Scalaのデメリット
 * 言語仕様が複雑(習得に時間がかかる)
-* シンタックスシュガーが多く多彩な書き方ができる
+* 糖衣構文が多く多彩な書き方ができる
 
 上記はコードレビューを促進させる要因にもなる
 
@@ -130,15 +133,14 @@ public String addPrefix(String value) {
 ```
 ```scala
 def addPrefix(value: String): String = {
-  val prefix = "pre"
-  prefix + value
+  "pre" + value
 }
 def addPrefix(value: String) = "pre" + value
 ```
 
 ---
 ### if式
-if文ではなくif式で値を返却する
+if文ではなくif式で、値を返却する
 Javaの三項演算子のほうが挙動が近い
 ```java
 String value = null;
