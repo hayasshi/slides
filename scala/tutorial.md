@@ -3,7 +3,7 @@ layout: true
 class: center, middle, inverse
 
 ---
-# 第0回　Scala社内勉強会(キックオフ)
+# 第0回　Scala社内勉強会  (キックオフ)
 
 ---
 layout: false
