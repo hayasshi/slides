@@ -1,6 +1,12 @@
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
 # Scalaチュートリアル的な
 
 ---
+layout: false
 ## Scalaとは
 * マルチパラダイム言語(オブジェクト指向言語＋関数型言語)
 * 「Scala」は英語の「scalable language」に由来
@@ -28,9 +34,11 @@
 * コンパイルが遅い(笑)
 
 ---
+layout: true
 ## Scalaの構文紹介
 
 ---
+layout: false
 ### class
 Javaとだいたい同じ
 ```java
