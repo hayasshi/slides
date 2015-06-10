@@ -1,7 +1,16 @@
-## Scalaチュートリアル的な
+name: inverse
+layout: true
+class: center, middle, inverse
+
+---
+# Scalaチュートリアル的な
+
+---
+## 目次
 * Scalaとは、メリット、デメリット
 * Scalaの構文紹介
 * Scalaのエコシステム
+* 読書会の進め方
 
 ---
 ## Scalaとは
@@ -31,7 +40,7 @@
 * コンパイルが遅い(笑)
 
 ---
-## Scalaの構文紹介
+# Scalaの構文紹介
 
 ---
 ### class
@@ -228,7 +237,7 @@ println(intToString(25)) // string: 25
 ```
 
 ---
-## Scalaのエコシステム
+# Scalaのエコシステム
 
 ---
 ### ビルドツール
