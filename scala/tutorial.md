@@ -234,9 +234,9 @@ val s = x match {
 
 val i = scala.util.Random.nextInt(15) + 1
 (i % 3, i % 5) match {
-  case (0, 0) => println("FizzBuzz")
+  case (0第0章) => println("FizzBuzz")
   case (0, _) => println("Fizz")
-  case (_, 0) => println("Buzz")
+  case (_第0章) => println("Buzz")
   case (_, _) => println(i.toString)
 }
 ```
@@ -406,18 +406,18 @@ println(intToString(25)) // string: 25
 ## 担当
 
 #### 6/17
-* 1: 細川
-* 2,3: 潮田
-* 4,5: 林
+* 第1章: 細川
+* 第2章、第3章: 潮田
+* 第4章、第5章: 林
 
 #### 6/24
-* 6,7: 高橋
-* 8,9: 道音
+* 第6章、第7章: 高橋
+* 第8章、第9章: 道音
 
 #### 7/1
-* 10,11: 小畑
-* 12,13: 細川
+* 第10章、第11章: 小畑
+* 第12章、第13章: 細川
 
 #### 7/8
-* 14,15: 高橋
-* 16,17: 林
+* 第14章、第15章: 高橋
+* 第16章、第17章: 林
