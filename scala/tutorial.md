@@ -3,7 +3,7 @@ layout: true
 class: center, middle, inverse
 
 ---
-# Scalaチュートリアル的な
+# 第0回　Scala社内勉強会(キックオフ)
 
 ---
 layout: false
@@ -244,6 +244,15 @@ val i = scala.util.Random.nextInt(15) + 1
 Scalaは関数をオブジェクトとして扱える
 その実態はFunctionNトレイトの無名クラス
 関数リテラルで意識せずに書ける
+```java
+Function1<Integer, String> intToString = new Function1() {
+    public String apply(Integer arg) {
+        return "string: " + arg.toString();
+    }
+};
+System.out.println(intToString.apply(1)); // string: 1
+System.out.println(intToString.apply(25)); // string: 25
+```
 ```scala
 val intToString: Int => String = (i: Int) => "string: " + i.toString
 println(intToString(1)) // string: 1
