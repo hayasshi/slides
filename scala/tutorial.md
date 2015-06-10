@@ -2,6 +2,7 @@ name: inverse
 layout: true
 class: center, middle, inverse
 
+---
 # Scalaチュートリアル的な
 
 ---
