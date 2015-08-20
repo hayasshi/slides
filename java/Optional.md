@@ -75,7 +75,7 @@ public Optional<User> findById(String userId) {
     - otherが計算量のかかる結果ならこちら
 
 ```java
-User user = findById("1").orElseGet(() -> insertAndGetUser("1"));
+User user = User.findById("1").orElseGet(() -> User.insertAndGet("1"));
 ```
 
 ## 基本的な使い方(値操作編)
