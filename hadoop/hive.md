@@ -1,6 +1,6 @@
 class: center, middle
 
-# Hive触ってみた(with Hue)
+# Hive触ってみた
 
 ---
 
@@ -21,7 +21,7 @@ class: center, middle
 
 # Hiveのできる
 
-- 様々なインタフェースからの実行できる
+- 様々なインタフェースから実行できる
   - Command Line
   - JDBC
   - ODBC
@@ -103,3 +103,11 @@ class: center, middle
 - 大量のデータをバッチ処理での分析、解析
   - Hive
   - Pig
+
+---
+
+# 動かしてみる
+
+- [Hive GettingStarted](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
+- [Hue](http://jp.gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes-2/)
+- [HueDocker](https://github.com/cloudera/hue/tree/master/tools/docker)
