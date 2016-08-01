@@ -45,12 +45,13 @@ class: center, middle
 
 # なんか似たようなのと比較
 
-|名前|概要|速度|扱えるデータ容量|
-|Hive|SQLを話してMapReduceを実施する蜂|△|◯|
-|Pig|Pig語を話してMapReduceを実施するブタ|×|◯|
+|名前   |概要                             |速度|扱えるデータ容量|
+|:-----|:--------------------------------|:---:|:---:|
+|Hive  |SQLを話してMapReduceを実施する蜂    |△|◯|
+|Pig   |Pig語を話してMapReduceを実施するブタ |×|◯|
 |Impala|SQLを話してメモリ上でMRを実施する速い鹿|◯|△|
-|Presto|Impalaと大体同じで生き物ですら無い|◯|△|
-|Spark|Scalaしゃべってたのに最近はSQLも話す|◯|△|
+|Presto|Impalaと大体同じで生き物ですら無い    |◯|△|
+|Spark|Scalaしゃべってたのに最近はSQLも話す   |◯|△|
 
 ---
 
