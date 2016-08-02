@@ -49,6 +49,12 @@ class: center, middle
 
 ---
 
+# Hiveのモチベーション
+
+## たぶんMapReduceを毎回書きたくなかったんだと思う
+
+---
+
 # なんか似たようなのと比較
 
 |名前   |概要                             |速度|扱えるデータ容量|
@@ -73,15 +79,30 @@ class: center, middle
 
 ---
 
-# Hiveのモチベーション
-
-## たぶんMapReduceを毎回書きたくなかったんだと思う
-
----
-
 # 動かしてみる
 
 - [Hive GettingStarted](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
   - これをもとにhiveをスタンドアロンで動かしました
 - [Hue](http://jp.gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes-2/)
 - [HueDocker](https://github.com/cloudera/hue/tree/master/tools/docker)
+  - Clouderaが公開しているQuickstartVM(Hadoopとか入ってる)と
+  - Hueと呼ばれるWebアプリを接続して
+  - WebUI上でHiveとかImpalaとか動かせる
+
+---
+
+# 思ったこと
+
+- いずれにせよHiveのテーブル形式で保存するために事前に変換処理とか必要な気がする
+  - Presto→Hive→...とかなってたのはそのせい？
+- コーディング、コンパイルなしで簡単な集計等が行えるのは嬉しいかも
+  - 複雑な解析系のものは扱えない印象
+- 処理するデータ量によっては選択肢としてありえる
+  - 色々なインタフェースを持っているのがいいと思った
+
+---
+class: center, middle
+
+# おしまい
+
+---
