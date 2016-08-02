@@ -19,6 +19,12 @@ class: center, middle
 
 ---
 
+# Hiveのアーキテクチャ
+
+![Hive Architecture](hive-architecture.jpg)
+
+---
+
 # Hiveのできる
 
 - 様々なインタフェースから実行できる
@@ -109,5 +115,6 @@ class: center, middle
 # 動かしてみる
 
 - [Hive GettingStarted](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
+  - これをもとにhiveをスタンドアロンで動かしました
 - [Hue](http://jp.gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes-2/)
 - [HueDocker](https://github.com/cloudera/hue/tree/master/tools/docker)
