@@ -21,7 +21,7 @@ class: center, middle
 
 # Hiveのアーキテクチャ
 
-![Hive Architecture](hive-architecture.jpg)
+![Hive Architecture](hive/hive-architecture.jpg)
 
 ---
 
@@ -63,12 +63,12 @@ class: center, middle
 
 # Hiveのモチベーション
 
-          ＿＿＿_
-      ／           ＼
-    ／  _ノ     ヽ､_  ＼
-  ／ oﾟ(（●）) (（●）)ﾟo ＼  色々な視点からデータみたいお...
-  |      （__人__）     |
-  ＼       ｀ ⌒´      ／
+              ＿＿＿_
+          ／           ＼
+        ／  _ノ     ヽ､_  ＼
+      ／ oﾟ(（●）) (（●）)ﾟo ＼  色々な視点からデータみたいお...
+      |      （__人__）     |
+      ＼       ｀ ⌒´      ／
 
 ---
 
