@@ -7,7 +7,7 @@
 - nullはドキュメンテーションに乏しい
 ```java
 String message = config.getMessage();
-return replaceMessage(message, "${shop_key}", shopKey);
+return replaceMessage(message, "${title}", title);
 ```
 - 突然のNPE！
 - Javadocを書く？毎回実装を確認する？
@@ -36,7 +36,7 @@ return replaceMessage(
 ```java
 Optional<String> messgeOpt = config.getMessage();
 return replaceMessage(
-  messageOpt.orElseThrow(() -> new WrongCodingError(..))), "${title}", title
+  messageOpt.orElseThrow(() -> new WrongCodingError()), "${title}", title
 );
 ```
 
