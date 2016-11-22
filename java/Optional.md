@@ -1,3 +1,6 @@
+# Java8 Optional
+
+---
 ## nullとの戦い
 - 初のオブジェクト指向言語の設計者曰く「null参照の考案は過ちであった。10億ドル単位の損害や苦労を引き起こしてきたのである。」
     - http://developers.srad.jp/story/09/03/05/0937219/
@@ -9,6 +12,7 @@ return replaceMessage(message, "${shop_key}", shopKey);
 - 突然のNPE！
 - Javadocを書く？毎回実装を確認する？
 
+---
 ## 救世主Optional
 - java.util.Optional<T>
     - https://docs.oracle.com/javase/jp/8/api/java/util/Optional.html
@@ -17,6 +21,7 @@ return replaceMessage(message, "${shop_key}", shopKey);
     - Listも実は文脈をもたらしているがまた別のお話
 - HaskellのMaybeやScalaのOptionなど、モダンな言語には採用されている
 
+---
 ## どういう効果があるの？
 - 値がないかもしれない型なのでチェックを明示的に行う
 ```java
@@ -28,6 +33,7 @@ Optional<String> messgeOpt = config.getMessage();
 return replaceMessage(messageOpt.orElseThrow(() -> new WrongCodingError(..))), "${shop_key}", shopKey);
 ```
 
+---
 ## 基本的な使い方(生成編)
 - Optional.empty()
     - 空のOptionalを返す
@@ -49,6 +55,7 @@ public Optional<User> findById(String userId) {
 - Optional.ofNullable(T value)
     - valueがnullの場合は空の、nullではない場合は値のあるOptionalを返す
 
+---
 ## 基本的な使い方(値取得編)
 - Optional.isPresent()
     - 値のある場合はtrue
@@ -64,6 +71,8 @@ public Optional<User> findById(String userId) {
     - 値のある場合はその値を返却する
     - 空の場合はexceptionSupplierを評価した結果の例外をスローする
 
+---
+## 基本的な使い方(値取得編)
 - Optional.orElse(T other)
     - 値のある場合はその値を返却する
     - 空の場合はotherを返却する
@@ -78,6 +87,7 @@ public Optional<User> findById(String userId) {
 User user = User.findById("1").orElseGet(() -> User.insertAndGet("1"));
 ```
 
+---
 ## 基本的な使い方(値操作編)
 - Optional.ifPresent(Consumer<? super T> consumer)
     - 値がある場合はその値を引数にconsumerを評価(実行)する
@@ -87,6 +97,8 @@ User user = User.findById("1").orElseGet(() -> User.insertAndGet("1"));
 userOpt.ifPresent(user -> System.out.println(user.getName()))
 ```
 
+---
+## 基本的な使い方(値操作編)
 - Optional.filter(Predicate<? super T> predicate)
     - 値がある場合はその値を引数にpredicateを評価し、trueならその値の、falseなら空のOptionalを返却する
     - 空の場合は空のOptionalを返却する
@@ -95,6 +107,8 @@ userOpt.filter(user -> user.getName().startsWith("A"))
        .ifPresent(user -> System.out.println(user.name))
 ```
 
+---
+## 基本的な使い方(値操作編)
 - Optional.map(Function<? super T,? extends U> mapper)
     - 値がある場合はその値を引数にmapperを評価し、結果のOptionalを返却する
     - 空の場合は空のOptionalを返却する
@@ -103,6 +117,8 @@ userOpt.map(user -> "ユーザ名: %s".format(user.getName()))
        .ifPresent(message -> System.out.println(message))
 ```
 
+---
+## 基本的な使い方(値操作編)
 - Optional.flatMap(Function<? super T,Optional<U>> mapper)
     - 値がある場合はその値を引数にmapperを評価し、その結果を返却する
     - 空の場合は空のOptionalを返却する
@@ -111,6 +127,7 @@ Optinal<String> ageOpt = userOpt.flatMap(user -> user.getAgeOpt()).map(Integer::
 System.out.println("ユーザの年齢: " + ageOpt.orElse("設定されていません"))
 ```
 
+---
 ## ダメな使い方
 - nullを扱う現行システムの一部に導入
     - あっちではOptionalを使う、こっちではnullチェックをする
@@ -127,6 +144,7 @@ public Optional<User> findById(String userId) {
     - 死刑
     - コードレビューをしっかりやろう
 
+---
 ## まとめ
 - Java8以降はnullに意味を持たせない
 
@@ -134,6 +152,7 @@ public Optional<User> findById(String userId) {
     - ただし現行システムとの混合は危険
     - nullが消えるわけではないので注意
 
+---
 ## 参考引用元
 [Javadoc](https://docs.oracle.com/javase/jp/8/api/java/util/Optional.html)
 [Java 8 "Optional" ～ これからのnullとの付き合い方 ～](http://qiita.com/shindooo/items/815d651a72f568112910)
