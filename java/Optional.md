@@ -145,6 +145,39 @@ public Optional<User> findById(String userId) {
     - コードレビューをしっかりやろう
 
 ---
+## Optinalはモナドなのか
+
+- モナド則を満たすデータ構造と演算になっているのか
+
+---
+## Optionalはモナドなのか(左単位元)
+
+```java
+FunctionalInterface<A, Optional<A>> f = (a: A) -> Optional.of(a);
+Optional.of("a").flatMap(a -> f.apply(a)) == f.apply("a");
+Optional.of(1).flatMap(one -> f.apply(one)) == f.apply(1);
+```
+
+---
+## Optionalはモナドなのか(右単位元)
+
+```java
+Optional.of("a").flatMap(a -> Optional.of(a)) == Optional.of("a");
+Optional.of(1).flatMap(one -> Optional.of(one)) == Optional.of(1);
+```
+
+---
+## Optionalはモナドなのか(結合律)
+
+```java
+FunctionalInterface<Integer, Optional<Integer>> plus1 = a -> Optional.of(a + 1);
+FunctionalInterface<Integer, Optional<Integer>> multi3 = a -> Optional.of(a * 3);
+Optional<> l = Optional.of(2).flatMap(i -> plus1(i)).flatMap(i -> multi3(i));
+Optional<> r = Optional.of(2).flatMap(i -> plus1(i).flatMap(ii -> multi3(ii)));
+l == r
+```
+
+---
 ## まとめ
 - Java8以降はnullに意味を持たせない
 
@@ -152,9 +185,14 @@ public Optional<User> findById(String userId) {
     - ただし現行システムとの混合は危険
     - nullが消えるわけではないので注意
 
+- Optionalはモナド
+
 ---
 ## 参考引用元
-[Javadoc](https://docs.oracle.com/javase/jp/8/api/java/util/Optional.html)
-[Java 8 "Optional" ～ これからのnullとの付き合い方 ～](http://qiita.com/shindooo/items/815d651a72f568112910)
-[Java8でのプログラムの構造を変えるOptional、ただしモナドではない](http://d.hatena.ne.jp/nowokay/20130524)
-[Optionalの取り扱いかた](http://irof.hateblo.jp/entry/2015/05/05/071450)
+
+- [Javadoc](https://docs.oracle.com/javase/jp/8/api/java/util/Optional.html)
+- [Java 8 "Optional" ～ これからのnullとの付き合い方 ～](http://qiita.com/shindooo/items/815d651a72f568112910)
+- [Java8でのプログラムの構造を変えるOptional、ただしモナドではない](http://d.hatena.ne.jp/nowokay/20130524)
+- [Java8のOptionalがモナドになったよ！](http://d.hatena.ne.jp/nowokay/20130805)
+- [Optionalの取り扱いかた](http://irof.hateblo.jp/entry/2015/05/05/071450)
+- [独習Scalaz -- Monad則](http://eed3si9n.com/learning-scalaz/ja/Monad-laws.html)
