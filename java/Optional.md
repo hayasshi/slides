@@ -148,6 +148,10 @@ public Optional<User> findById(String userId) {
 ## Optinalはモナドなのか
 
 - モナド則を満たすデータ構造と演算になっているのか
+- モナド則
+  - 左単位元(左恒等性)
+  - 右単位元(右恒等性)
+  - 結合律
 
 ---
 ## Optionalはモナドなのか(左単位元)
