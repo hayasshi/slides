@@ -124,7 +124,7 @@ userOpt.filter(user -> user.getName().startsWith("A"))
 ---
 ## 基本的な使い方(値操作編)
 
-- Optional.map(Function<? super T, ? extends U> mapper)
+- Optional.map(Function<? super T, ? extends K> mapper)
     - 値がある場合はその値を引数にmapperを評価し、結果のOptionalを返却する
     - 空の場合は空のOptionalを返却する
 
@@ -136,7 +136,7 @@ userOpt.map(user -> "ユーザ名: %s".format(user.getName()))
 ---
 ## 基本的な使い方(値操作編)
 
-- Optional.flatMap(Function<? super T, Optional<U> > mapper)
+- Optional.flatMap(Function<? super T, Optional<K>> mapper)
     - 値がある場合はその値を引数にmapperを評価し、その結果を返却する
     - 空の場合は空のOptionalを返却する
 
