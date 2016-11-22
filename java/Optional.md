@@ -28,16 +28,21 @@ return replaceMessage(message, "${shop_key}", shopKey);
 
 ```java
 Optional<String> messgeOpt = config.getMessage();
-return replaceMessage(messageOpt.orElse("${shop_key}: 初期文言"), "${shop_key}", shopKey);
+return replaceMessage(
+  messageOpt.orElse("${title}: 初期文言"), "${title}", title
+);
 ```
 
 ```java
 Optional<String> messgeOpt = config.getMessage();
-return replaceMessage(messageOpt.orElseThrow(() -> new WrongCodingError(..))), "${shop_key}", shopKey);
+return replaceMessage(
+  messageOpt.orElseThrow(() -> new WrongCodingError(..))), "${title}", title
+);
 ```
 
 ---
 ## 基本的な使い方(生成編)
+
 - Optional.empty()
     - 空のOptionalを返す
     - いままでのnullの代わり
@@ -119,7 +124,7 @@ userOpt.filter(user -> user.getName().startsWith("A"))
 ---
 ## 基本的な使い方(値操作編)
 
-- Optional.map(Function<? super T,? extends U> mapper)
+- Optional.map(Function<? super T, ? extends U> mapper)
     - 値がある場合はその値を引数にmapperを評価し、結果のOptionalを返却する
     - 空の場合は空のOptionalを返却する
 
@@ -131,7 +136,7 @@ userOpt.map(user -> "ユーザ名: %s".format(user.getName()))
 ---
 ## 基本的な使い方(値操作編)
 
-- Optional.flatMap(Function<? super T,Optional<U>> mapper)
+- Optional.flatMap(Function<? super T, Optional<U> > mapper)
     - 値がある場合はその値を引数にmapperを評価し、その結果を返却する
     - 空の場合は空のOptionalを返却する
 
