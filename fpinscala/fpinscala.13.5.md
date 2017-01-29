@@ -71,3 +71,18 @@ val prog: Free[Par, Unit] = for {
   ...
 } yield ()
 ```
+
+---
+### EXERCISE13.5
+
+`java.nio.AsynchronousFileChannel`をつかって、非同期読み取り関数`read`を作成する。
+
+```scala
+def read(
+  file: AsynchronousFileChannel,
+  fromPosition: Long,
+  numBytes: Int
+): Par[Either[Throwable, Array[Byte]]]
+```
+
+https://github.com/fpinscala/fpinscala/blob/master/answers/src/main/scala/fpinscala/iomonad/IO.scala#L597-L628
