@@ -8,7 +8,7 @@
 - 「ノンブロッキングまたは非同期I/O」を扱うJavaAPIを並列処理を扱うモナドでラップすることでFreeでも扱えるようにする
 
 ---
-## では
+### では
 
 13.4の最初に上げた問題の、残っているほう、「ノンブロッキングまたは非同期I/O」を実行するという問題に目を向ける。
 具体的にはFreeインタープリタの実装で、I/Oを実行する際に、完了に時間がかかるものの、CPUは占有しない演算をどうあつかうか。
@@ -30,7 +30,6 @@ trait Source {
 
 これはそのままでは取り扱うのは難しいが、Par型を利用すれば、これらのコールバックをラッピングできる。
 
----
 ```scala
 // 7.4.4で定義されている`parallelism/Nonblocking.scala`
 trait Futre[+A] {
@@ -53,7 +52,6 @@ def async[A](f: (A => Unit) => Unit): Par[A] = es => new Future[A] {
 
 これを利用して、非同期関数readBytesをParの便利なモナドインターフェイスにラッピングできる。
 
----
 ```scala
 def nonblockingRead(source: Source, numBytes: Int): Par[Either[Throwable, Array[Byte]]] =
   async { (cb: Eithre[Throwable, Array[Byte]] => Unit) => source.readBytes(numBytes, cb) }
