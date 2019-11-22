@@ -15,7 +15,7 @@ Akka 2.6.0 になって新しく追加された機能ハイライトを、[リ�
 - Akka Remote におけるメッセージ用トランスポート周りが刷新
 - メッセージシリアライゼーションが`Jackson`ベースのものに刷新
 - Akka 内部(≒`ActorSystem`内?)で使われる`dispatcher`をユーザー領域のものと分離
-- Akka Streams 実行時に`Materializer`生成不要に変更(`ActorSystem`のみ。暗黙に生成され渡される)
+- Akka Streams 実行時に`Materializer`生成不要に
 - Akka Streams における上流キャンセルの原因を伝搬できるようにし、例えば Akka HTTP のエラーハンドリングを改善などができるように修正
 - Akka Cluster Sharding のエンティティのパッシベーションをデフォルトで有効に変更
 - ドキュメントとサンプルプロジェクトの改善
@@ -35,8 +35,8 @@ Untyped なアクターと、スーパービジョンやライフサイクルフ
 詳細は下記あたりにまとめています。
 (`2.5.17`のときのものですが、簡単にドキュメントを確認した感じ変わっていなさそうでした。また時間があれば検証します。)
 
-[スーパービジョン](https://speakerdeck.com/hayasshi/akka-typed-typesafe-messaging?slide=39) [ドキュメント](https://doc.akka.io/docs/akka/2.6/typed/fault-tolerance.html)
-[ライフサイクルフック](https://speakerdeck.com/hayasshi/akka-typed-typesafe-messaging?slide=50) [ドキュメント](https://doc.akka.io/docs/akka/2.6/typed/actor-lifecycle.html)
+- [スーパービジョン](https://speakerdeck.com/hayasshi/akka-typed-typesafe-messaging?slide=39) [ドキュメント](https://doc.akka.io/docs/akka/2.6/typed/fault-tolerance.html)
+- [ライフサイクルフック](https://speakerdeck.com/hayasshi/akka-typed-typesafe-messaging?slide=50) [ドキュメント](https://doc.akka.io/docs/akka/2.6/typed/actor-lifecycle.html)
 
 ---
 ## Akka Remote におけるメッセージ用トランスポート周りが刷新
@@ -55,9 +55,9 @@ TODO:調べる
 `SourceRef`, `SinkRef`などの Distributed Akka Streams で使われている通信を使っているのではないかと予想しています。
 また時間のあるときに見たいとおいます。
 
-https://doc.akka.io/docs/akka/current/stream/stream-io.html#streaming-tcp
-https://doc.akka.io/docs/akka/2.6/project/migration-guide-2.5.x-2.6.x.html#remoting
-https://doc.akka.io/docs/akka/current/stream/stream-refs.html
+- https://doc.akka.io/docs/akka/current/stream/stream-io.html#streaming-tcp
+- https://doc.akka.io/docs/akka/2.6/project/migration-guide-2.5.x-2.6.x.html#remoting
+- https://doc.akka.io/docs/akka/current/stream/stream-refs.html
 
 
 ---
@@ -69,6 +69,7 @@ https://doc.akka.io/docs/akka/2.6/serialization-jackson.html
 これにより、オブジェクトのバージョンアップに伴う変更が行いやすくなりました。
 
 `Jackson`の依存が入ってしまうので、そこは注意が必要です。[Jackson 2.10.0 に依存](https://github.com/akka/akka/blob/v2.6.0/project/Dependencies.scala#L24)
+
 もちろんこれまで通り、自分で実装したSerDesを利用することも可能です。
 
 
@@ -81,7 +82,7 @@ https://doc.akka.io/docs/akka/2.6/serialization-jackson.html
 
 
 ---
-## Akka Streams 実行時に`Materializer`生成不要に変更(`ActorSystem`のみ。暗黙に生成され渡される)
+## Akka Streams 実行時に`Materializer`生成不要に
 
 ```scala
 implicit val system       = ActorSystem("akka-sample")
@@ -97,8 +98,8 @@ Source.single("Hello World!").runForeach(println)
 少しコードを見た感じ`akka.stream.Materializer`内で`ActorSystem`からの暗黙の変換がおこなわれている。
 作られる`Materiazlier`は Akka Extentions を使って管理され、`ActorSystem`毎に一つだけ作られるようになっている。
 
-https://github.com/akka/akka/blob/v2.6.0/akka-stream/src/main/scala/akka/stream/Materializer.scala#L193-L197
-https://github.com/akka/akka/blob/v2.6.0/akka-stream/src/main/scala/akka/stream/SystemMaterializer.scala
+- https://github.com/akka/akka/blob/v2.6.0/akka-stream/src/main/scala/akka/stream/Materializer.scala#L193-L197
+- https://github.com/akka/akka/blob/v2.6.0/akka-stream/src/main/scala/akka/stream/SystemMaterializer.scala
 
 
 ---
