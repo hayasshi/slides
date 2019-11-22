@@ -24,6 +24,17 @@ Akka 2.6.0 になって新しく追加された機能ハイライトを、[リ�
 
 私の興味のあるものを抜粋して少し深ぼります。
 
+
+---
+## 自己紹介
+
+![hayasshi](/slides/akka-2.6/prof.png)
+
+GitHub: [hayasshi](https://github.com/hayasshi)
+
+Twitter: [@hayasshi_](https://twitter.com/hayasshi_)
+
+
 ---
 ## Akka Typed が安定版へ
 
