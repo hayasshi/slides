@@ -30,10 +30,10 @@ Akka 2.6.0 になって新しく追加された機能ハイライトを、[リ�
 
 ![hayasshi](/slides/akka-2.6/prof.png)
 
-GitHub: [hayasshi](https://github.com/hayasshi)
-
-Twitter: [@hayasshi_](https://twitter.com/hayasshi_)
-
+- GitHub: [hayasshi](https://github.com/hayasshi)
+- Twitter: [@hayasshi_](https://twitter.com/hayasshi_)
+- Chatwork株式会社 サーバーサイド開発部 Scala運用チームリード
+- Scala関西スタッフ
 
 ---
 ## Akka Typed が安定版へ
@@ -53,7 +53,7 @@ Untyped なアクターと、スーパービジョンやライフサイクルフ
 ## Akka Remote におけるメッセージ用トランスポート周りが刷新
 
 Akka Remote のTCP通信周りが、[Artery](https://doc.akka.io/docs/akka/current/remoting-artery.html#what-is-new-in-artery)(PJ名)のものに置き換え。
-TCPが`Netty`から`Akka Streams TCP/TLS`ベースのものへ、UDPが[`Aeron`](https://github.com/real-logic/Aeron)という方式のものへ変更。
+TCPが`Netty`から`Akka Streams TCP/TLS`ベースのものへ、また、UDPでのメッセージングもサポートされました。[`Aeron`](https://github.com/real-logic/Aeron)というUDP上でのプロトコルで実装されています。
 
 これにより、`high-throughput, low-latency communication`を達成(?)
 
